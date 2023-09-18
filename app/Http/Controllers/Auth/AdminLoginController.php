@@ -27,7 +27,7 @@ class AdminLoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/admin';
+    protected $redirectTo = RouteServiceProvider::ADMINPANEL;
 
     /**
      * Create a new controller instance.
@@ -36,7 +36,7 @@ class AdminLoginController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest')->except('logout');
+        $this->middleware('guest:admin_user')->except('logout');
     }
 
     public function showLoginForm()
