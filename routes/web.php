@@ -3,14 +3,11 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-
+// User Auth
 Auth::routes();
 
-Route::get('/', [\App\Http\Controllers\Frontend\PageController::class, 'home'])->name('home');
-
+// Admin User Auth
 Route::get('admin/login', [\App\Http\Controllers\Auth\AdminLoginController::class, 'showLoginForm'])->name('admin.get.login');
 Route::post('admin/login', [\App\Http\Controllers\Auth\AdminLoginController::class, 'login'])->name('admin.login');
 
-Route::get('/admin', function () {
-    return 'Admin Page';
-});
+Route::get('/', [\App\Http\Controllers\Frontend\PageController::class, 'home'])->name('home');
