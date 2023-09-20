@@ -35,3 +35,6 @@
         <i class="bi bi-justify fs-3"></i>
     </a>
 </div>
+<div class="page-heading">
+    <h3>@yield('page_title')</h3>
+</div>

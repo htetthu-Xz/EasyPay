@@ -3,7 +3,9 @@
         <div class="sidebar-header position-relative">
             <div class="d-flex justify-content-between align-items-center">
                 <div class="logo">
-                    <a href="index.html"><img src="{{ asset('backend/images/logo/logo.svg') }}" alt="Logo" srcset=""></a>
+                    <a href="index.html">
+                        <img src="{{ asset('images/logo/easypay.png') }}" alt="Logo" srcset="" class="s-logo">
+                    </a>
                 </div>
 
                 <div class="sidebar-toggler  x">
