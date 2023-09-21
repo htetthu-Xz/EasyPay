@@ -9,7 +9,13 @@
     <link rel="shortcut icon" href="" type="image/x-icon">
     <link rel="stylesheet" href="{{ asset('backend/css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('backend/css/app_dark.css') }}">
-    <link rel="stylesheet" href="{{ asset('backend/css/iconly.css') }}">
+    <link rel="stylesheet" href="{{ asset('backend/extensions/@fortawesome/fontawesome-free/css/all.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('backend/extensions/datatables.net-bs5/css/dataTables.bootstrap5.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('backend/extensions/toastify-js/src/toastify.css') }}">
+    <link rel="stylesheet" href="{{ asset('backend/css/datatables.css') }}">
+
+
+    @stack('css')
 </head>
 <body>
     <div id="app">
@@ -31,5 +37,22 @@
 
     <script src="{{ asset('backend/js/app.js') }}"></script>
     <script src="{{ asset('backend/js/pages/horizontal-layout.js') }}"></script>
+    <script src="{{ asset('backend/extensions/jquery/jquery.min.js') }}"></script>
+    <script src="https://cdn.datatables.net/v/bs5/dt-1.12.1/datatables.min.js"></script>
+    <script src="{{ asset('backend/extensions/toastify-js/src/toastify.js') }}"></script>
+    <script src="{{ asset('backend/js/pages/datatables.js') }}"></script>
+
+    @include('backend.layouts.toast')
+
+    <script>
+        $(() => {
+            $('.cancel-btn').on('click', function() {
+                window.history.go(-1);
+                return false;
+            })
+        })
+    </script>
+
+    @stack('script')
 </body>
 </html>

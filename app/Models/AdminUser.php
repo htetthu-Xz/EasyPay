@@ -13,6 +13,7 @@ class AdminUser extends Authenticatable
         'name',
         'email',
         'password',
+        'phone'
     ];
 
     /**
@@ -23,4 +24,9 @@ class AdminUser extends Authenticatable
     protected $hidden = [
         'password',
     ];
+
+    public function setPasswordAttribute($value)
+    {
+        $this->attributes['password'] = bcrypt($value);
+    }
 }
