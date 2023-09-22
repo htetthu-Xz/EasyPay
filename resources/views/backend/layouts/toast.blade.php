@@ -1,14 +1,22 @@
 @if (session()->has('success'))
 
 <script>
-    Toastify({
-        text: "{{ session('success') }}",
-        duration: 4000,
-        close:true,
-        gravity:"top",
-        position: "right",
-        backgroundColor: "#4fbe87",
-    }).showToast();
+const Toast = Swal.mixin({
+    toast: true,
+    position: 'top-end',
+    showConfirmButton: false,
+    timer: 10000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+        toast.addEventListener('mouseenter', Swal.stopTimer)
+        toast.addEventListener('mouseleave', Swal.resumeTimer)
+    }
+    })
+
+    Toast.fire({
+    icon: 'success',
+    title: "{{ session('success') }}"
+    })
 </script>
     
 @endif
