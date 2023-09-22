@@ -160,6 +160,7 @@ return [
         Illuminate\Session\SessionServiceProvider::class,
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
+        Jenssegers\Agent\AgentServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
 
         /*
@@ -231,6 +232,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
         'DataTables' => Yajra\DataTables\Facades\DataTables::class,
+        'Agent' => Jenssegers\Agent\Facades\Agent::class,
     ],
 
 ];

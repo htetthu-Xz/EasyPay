@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Models\AdminUser;
+use Jenssegers\Agent\Agent;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 use App\Http\Controllers\Controller;
@@ -22,9 +23,26 @@ class AdminUserController extends Controller
             $data = AdminUser::query();
 
             return DataTables::of($data)
+                ->editColumn('user_agent', function($admin) {
+                    if($admin->user_agent) {
+                        $agent = new Agent();
+                        $agent->setUserAgent($admin->user_agent);
+                        $device = $agent->device();
+                        $platform = $agent->platform();
+                        $browser = $agent->browser();
+                        return view('backend.admin.partials.user_agent', [
+                            'platform' => $platform,
+                            'device' => $device,
+                            'browser' => $browser
+                        ]);
+                    } else {
+                        return '-';
+                    }
+                })
                 ->addColumn('action', function($admin) {
                     return view('backend.admin.partials.table_action', ['admin' => $admin]);
                 })
+                ->rawColumns(['action', 'user_agent'])
                 ->make(true);
         }
     }

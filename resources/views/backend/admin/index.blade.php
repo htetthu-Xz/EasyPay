@@ -11,12 +11,14 @@
     <div class="content-section">
         <div class="card">
             <div class="card-body">
-                <table class="table data-table">
+                <table class="table data-table table-bordered">
                     <thead>
                         <th>#</th>
                         <th>Name</th>
                         <th>Email</th>
                         <th>Phone</th>
+                        <th>IP</th>
+                        <th>User Agent</th>
                         <th>Action</th>
                     </thead>
                     <tbody>
@@ -53,9 +55,18 @@
                         name : 'Phone'
                     },
                     {
+                        data : 'ip',
+                        name : 'ip'
+                    },
+                    {
+                        data : 'user_agent',
+                        name : 'user_agent',
+                        class : 'text-center'
+                    },
+                    {
                         data : 'action',
                         name : 'action'
-                    }
+                    },
                 ]
             });
 
