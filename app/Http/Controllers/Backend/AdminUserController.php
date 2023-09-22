@@ -21,7 +21,11 @@ class AdminUserController extends Controller
         if($request->ajax()) {
             $data = AdminUser::query();
 
-            return DataTables::of($data)->make(true);
+            return DataTables::of($data)
+                ->addColumn('action', function($admin) {
+                    return view('backend.admin.partials.table_action', ['admin' => $admin]);
+                })
+                ->make(true);
         }
     }
 
@@ -42,18 +46,22 @@ class AdminUserController extends Controller
         //
     }
 
-    public function edit($id)
+    public function edit(AdminUser $admin_user)
     {
-        //
+        return view('backend.admin.edit', ['admin_user' => $admin_user]);
     }
 
-    public function update(Request $request, $id)
+    public function update(AdminUserRequest $request, AdminUser $admin_user)
     {
-        //
+        $admin_user->update($request->validated());
+
+        return redirect()->route('admin-user.index')->with(['success' => 'Admin successfully updated.']);
     }
 
-    public function destroy($id)
+    public function destroy(Request $request, AdminUser $admin_user)
     {
-        //
+        if($request->ajax()) {
+            $admin_user->delete();
+        }
     }
 }

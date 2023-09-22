@@ -12,7 +12,7 @@
         <div class="card">
             <div class="card-body">
                 @include('backend.layouts.page_info')
-                <form action="{{ route('admin-user.store') }}" method="POST" id="create">
+                <form action="{{ route('admin-user.store') }}" method="POST" id="form">
                     @csrf
                     <div class="form-group">
                         <label class="form-label" for="name">Name <span class="text-danger">*</span></label>
@@ -41,5 +41,5 @@
 @endsection
 
 @push('script')
-    {!! JsValidator::formRequest('App\Http\Requests\AdminUserRequest', '#create') !!}
+    {!! JsValidator::formRequest('App\Http\Requests\AdminUserRequest', '#form') !!}
 @endpush

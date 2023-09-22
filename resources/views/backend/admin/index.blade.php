@@ -17,7 +17,7 @@
                         <th>Name</th>
                         <th>Email</th>
                         <th>Phone</th>
-                        {{-- <th>Action</th> --}}
+                        <th>Action</th>
                     </thead>
                     <tbody>
                         {{-- Datetable Data --}}
@@ -31,7 +31,7 @@
 @push('script')
     <script>
         $(() => {
-            $('.data-table').DataTable({
+            let table = $('.data-table').DataTable({
                 serverSide : true,
                 processing : true,
                 ajax : "{{ route('admin.admin-user.data') }}",
@@ -51,10 +51,38 @@
                     {
                         data : 'phone',
                         name : 'Phone'
+                    },
+                    {
+                        data : 'action',
+                        name : 'action'
                     }
                 ]
-            })
+            });
+
+            $(document).on('click', '.delete' ,function(e) {
+                e.preventDefault();
+                Swal.fire({
+                    title: 'Are you sure, you want to delete?',
+                    confirmButtonText: 'Confirm',
+                    confirmButtonColor: '#d9534f',
+                    showCancelButton: true,
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        $.ajax({
+                            url : route('admin-user.destroy', [$(this).data('id')]),
+                            type : 'DELETE',
+                            data : {
+                            '_token' : "{{ csrf_token() }}",
+                            },
+                            success : function() {
+                            table.ajax.reload();
+                            }
+                        })
+                    }
+                })
+            });
         })
     </script>
+
 @endpush
     

@@ -53,6 +53,8 @@
         })
     </script>
 
+    @routes
+
     @stack('script')
 </body>
 </html>
