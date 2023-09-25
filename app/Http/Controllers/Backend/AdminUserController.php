@@ -40,9 +40,6 @@ class AdminUserController extends Controller
                         return '-';
                     }
                 })
-                ->editColumn('created_at', function($admin) {
-                    return Carbon::parse($admin->created_at)->format('Y-m-d');
-                })
                 ->editColumn('updated_at', function($admin) {
                     return Carbon::parse($admin->updated_at)->format('Y-m-d');
                 })

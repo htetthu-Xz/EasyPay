@@ -4,23 +4,21 @@
 
 @section('content')
 
-    <div class="container">
         <div class="mb-4 text-end">
             <a href="{{ route('admin-user.create') }}" class="btn btn-primary"><i class="fas fa-plus-circle"></i> Create Admin</a>
         </div>
-        <div class="content-section">
+        <div class="section">
             <div class="card">
                 <div class="card-body">
                     <table class="table data-table table-bordered">
                         <thead>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Phone</th>
-                            <th>IP</th>
-                            <th>User Agent</th>
-                            <th>Created at</th>
-                            <th>Updated at</th>
-                            <th>Action</th>
+                            <th class="text-center">Name</th>
+                            <th class="text-center">Email</th>
+                            <th class="text-center">Phone</th>
+                            <th class="text-center">IP</th>
+                            <th class="text-center">User Agent</th>
+                            <th class="text-center">Updated at</th>
+                            <th class="text-center">Action</th>
                         </thead>
                         <tbody>
                             {{-- Datatable Data --}}
@@ -29,7 +27,6 @@
                 </div>
             </div>
         </div>
-    </div>
 
 @endsection
     
@@ -40,7 +37,7 @@
                 serverSide : true,
                 processing : true,
                 ajax : "{{ route('admin.admin-user.data') }}",
-                scrollX : true,
+                scrollX : false,
                 columns : [
                     {
                         data : 'name',
@@ -68,12 +65,9 @@
                         sortable : false
                     },
                     {
-                        data : 'created_at',
-                        name : 'created_at'
-                    },
-                    {
                         data : 'updated_at',
-                        name : 'updated_at'
+                        name : 'updated_at',
+                        searchable : false
                     },
                     {
                         data : 'action',
@@ -81,7 +75,10 @@
                         searchable : false,
                         sortable : false
                     },
-                ]
+                ],
+                order : [
+                    [5, "desc"]
+                ],
             });
 
             $(document).on('click', '.delete' ,function(e) {

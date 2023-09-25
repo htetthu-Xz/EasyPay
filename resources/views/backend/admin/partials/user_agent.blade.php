@@ -1,4 +1,4 @@
-<table class="table table-bordered">
+<table class="table table-bordered p-0">
     <tbody>
         <tr>
             <td>device</td>
