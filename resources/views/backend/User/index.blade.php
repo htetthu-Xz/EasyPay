@@ -1,11 +1,11 @@
 @extends('backend.layouts.app')
 
-@section('title', 'Admins')
+@section('title', 'Users')
 
 @section('content')
 
         <div class="mb-4 text-end">
-            <a href="{{ route('admin-user.create') }}" class="btn btn-primary"><i class="fas fa-plus-circle"></i> Create Admin</a>
+            <a href="{{ route('users.create') }}" class="btn btn-primary"><i class="fas fa-plus-circle"></i> Create User</a>
         </div>
         <div class="section">
             <div class="card">
@@ -36,7 +36,7 @@
             let table = $('.data-table').DataTable({
                 serverSide : true,
                 processing : true,
-                ajax : "{{ route('admin.admin-user.data') }}",
+                ajax : "{{ route('user.data') }}",
                 scrollX : false,
                 columns : [
                     {
@@ -91,7 +91,7 @@
                 }).then((result) => {
                     if (result.isConfirmed) {
                         $.ajax({
-                            url : route('admin-user.destroy', [$(this).data('id')]),
+                            url : route('users.destroy', [$(this).data('id')]),
                             type : 'DELETE',
                             data : {
                             '_token' : "{{ csrf_token() }}",
@@ -112,7 +112,7 @@
 
                                 Toast.fire({
                                 icon: 'success',
-                                title: "Admin successfully deleted"
+                                title: "User successfully deleted"
                                 })
                             }
                         })

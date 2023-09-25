@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\PageController;
+use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\Backend\AdminUserController;
 
 Route::group([
@@ -12,4 +13,7 @@ Route::group([
 
     Route::resource('admin-user', AdminUserController::class);
     Route::get('admin-user/datatable/server-side-data', [AdminUserController::class, 'serverSideData'])->name('admin.admin-user.data');
+
+    Route::resource('users', UserController::class);
+    Route::get('user/datatable/server-side-data', [UserController::class, 'serverSideData'])->name('user.data');
 });

@@ -1,8 +1,6 @@
 @extends('backend.layouts.app')
 
-@section('title', 'Admin Create')
-
-@section('page_title', 'Admin Create')
+@section('title', 'Create Admin User')
 
 @section('content')
     <div class="mb-4 text-end">

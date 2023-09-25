@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\AdminUserRequest;
+use App\Http\Requests\UpdateAdminUserRequest;
 
 class AdminUserController extends Controller
 {
@@ -73,7 +74,7 @@ class AdminUserController extends Controller
         return view('backend.admin.edit', ['admin_user' => $admin_user]);
     }
 
-    public function update(AdminUserRequest $request, AdminUser $admin_user)
+    public function update(UpdateAdminUserRequest $request, AdminUser $admin_user)
     {
         $admin_user->update($request->validated());
 

@@ -1,6 +1,6 @@
 @extends('backend.layouts.app')
 
-@section('title', 'EasyPay Admin Dashboard')
+@section('title', 'Dashboard')
 
 @section('page_title', 'Dashboard')
 
