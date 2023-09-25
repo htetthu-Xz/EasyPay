@@ -2,32 +2,35 @@
 
 @section('title', 'Admins')
 
-@section('page_title', 'Admins')
-
 @section('content')
-    <div class="mb-4 text-end">
-        <a href="{{ route('admin-user.create') }}" class="btn btn-primary"><i class="fas fa-plus-circle"></i> Create Admin</a>
-    </div>
-    <div class="content-section">
-        <div class="card">
-            <div class="card-body">
-                <table class="table data-table table-bordered">
-                    <thead>
-                        <th>#</th>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Phone</th>
-                        <th>IP</th>
-                        <th>User Agent</th>
-                        <th>Action</th>
-                    </thead>
-                    <tbody>
-                        {{-- Datetable Data --}}
-                    </tbody>
-                </table>
+
+    <div class="container">
+        <div class="mb-4 text-end">
+            <a href="{{ route('admin-user.create') }}" class="btn btn-primary"><i class="fas fa-plus-circle"></i> Create Admin</a>
+        </div>
+        <div class="content-section">
+            <div class="card">
+                <div class="card-body">
+                    <table class="table data-table table-bordered">
+                        <thead>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>IP</th>
+                            <th>User Agent</th>
+                            <th>Created at</th>
+                            <th>Updated at</th>
+                            <th>Action</th>
+                        </thead>
+                        <tbody>
+                            {{-- Datatable Data --}}
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
+
 @endsection
     
 @push('script')
@@ -37,11 +40,8 @@
                 serverSide : true,
                 processing : true,
                 ajax : "{{ route('admin.admin-user.data') }}",
+                scrollX : true,
                 columns : [
-                    {
-                        data : 'id',
-                        name : 'id'
-                    },
                     {
                         data : 'name',
                         name : 'name'
@@ -56,16 +56,30 @@
                     },
                     {
                         data : 'ip',
-                        name : 'ip'
+                        name : 'ip',
+                        searchable : false,
+                        sortable : false
                     },
                     {
                         data : 'user_agent',
                         name : 'user_agent',
-                        class : 'text-center'
+                        class : 'text-center',
+                        searchable : false,
+                        sortable : false
+                    },
+                    {
+                        data : 'created_at',
+                        name : 'created_at'
+                    },
+                    {
+                        data : 'updated_at',
+                        name : 'updated_at'
                     },
                     {
                         data : 'action',
-                        name : 'action'
+                        name : 'action',
+                        searchable : false,
+                        sortable : false
                     },
                 ]
             });

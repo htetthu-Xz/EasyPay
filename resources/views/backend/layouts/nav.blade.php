@@ -6,7 +6,7 @@
             
 <div class="d-flex justify-content-between align-items-center mb-4 nav_ px-2 py-3 rounded">
     <div class="page-heading mx-3">
-        <h3 class="mb-0">@yield('page_title')</h3>
+        <h3 class="mb-0">@yield('title')</h3>
     </div>
     <div class="d-flex justify-content-end align-items-center">
         <div class="theme-toggle d-flex gap-2  align-items-center mt-2">

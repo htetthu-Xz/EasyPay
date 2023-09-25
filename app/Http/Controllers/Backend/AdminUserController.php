@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Backend;
 
+use Carbon\Carbon;
 use App\Models\AdminUser;
 use Jenssegers\Agent\Agent;
 use Illuminate\Http\Request;
@@ -38,6 +39,12 @@ class AdminUserController extends Controller
                     } else {
                         return '-';
                     }
+                })
+                ->editColumn('created_at', function($admin) {
+                    return Carbon::parse($admin->created_at)->format('Y-m-d');
+                })
+                ->editColumn('updated_at', function($admin) {
+                    return Carbon::parse($admin->updated_at)->format('Y-m-d');
                 })
                 ->addColumn('action', function($admin) {
                     return view('backend.admin.partials.table_action', ['admin' => $admin]);
