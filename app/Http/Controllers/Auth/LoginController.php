@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Auth;
 
 use Illuminate\Http\Request;
-use Illuminate\Http\JsonResponse;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Providers\RouteServiceProvider;
+use Carbon\Carbon;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class LoginController extends Controller
@@ -62,6 +62,7 @@ class LoginController extends Controller
     {
         $user->update([
             'ip' => $request->ip(),
+            'login_at' => Carbon::now(),
             'user_agent' => $request->server("HTTP_USER_AGENT")
         ]);
     }

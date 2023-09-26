@@ -43,6 +43,13 @@ class UserController extends Controller
                 ->editColumn('updated_at', function($user) {
                     return Carbon::parse($user->updated_at)->format('Y-m-d');
                 })
+                ->editColumn('login_at', function($user) {
+                    if($user->login_at) {
+                        return Carbon::parse($user->login_at)->format('Y-m-d H:i:s');
+                    } else {
+                        return '-';
+                    }
+                })
                 ->addColumn('action', function($user) {
                     return view('backend.user.partials.table_action', ['user' => $user]);
                 })

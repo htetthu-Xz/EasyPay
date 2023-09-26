@@ -4,29 +4,30 @@
 
 @section('content')
 
-        <div class="mb-4 text-end">
-            <a href="{{ route('users.create') }}" class="btn btn-primary"><i class="fas fa-plus-circle"></i> Create User</a>
-        </div>
-        <div class="section">
-            <div class="card">
-                <div class="card-body">
-                    <table class="table data-table table-bordered">
-                        <thead>
-                            <th class="text-center">Name</th>
-                            <th class="text-center">Email</th>
-                            <th class="text-center">Phone</th>
-                            <th class="text-center">IP</th>
-                            <th class="text-center">User Agent</th>
-                            <th class="text-center">Updated at</th>
-                            <th class="text-center">Action</th>
-                        </thead>
-                        <tbody>
-                            {{-- Datatable Data --}}
-                        </tbody>
-                    </table>
-                </div>
+    <div class="mb-4 text-end">
+        <a href="{{ route('users.create') }}" class="btn btn-primary"><i class="fas fa-plus-circle"></i> Create User</a>
+    </div>
+    <div class="section d-block">
+        <div class="card d-block">
+            <div class="card-body">
+                <table class="table data-table table-bordered">
+                    <thead>
+                        <th class="text-center">Name</th>
+                        <th class="text-center">Email</th>
+                        <th class="text-center">Phone</th>
+                        <th class="text-center">IP</th>
+                        <th class="text-center">Login at</th>
+                        <th class="text-center">User Agent</th>
+                        <th class="text-center">Updated at</th>
+                        <th class="text-center">Action</th>
+                    </thead>
+                    <tbody>
+                        {{-- Datatable Data --}}
+                    </tbody>
+                </table>
             </div>
         </div>
+    </div>
 
 @endsection
     
@@ -58,6 +59,13 @@
                         sortable : false
                     },
                     {
+                        data : 'login_at',
+                        name : 'login_at',
+                        class : 'text-center',
+                        searchable : false,
+                        sortable : false
+                    },
+                    {
                         data : 'user_agent',
                         name : 'user_agent',
                         class : 'text-center',
@@ -77,7 +85,7 @@
                     },
                 ],
                 order : [
-                    [5, "desc"]
+                    [6, "desc"]
                 ],
             });
 
