@@ -4,10 +4,12 @@ namespace App\Http\Controllers\Backend;
 
 use Carbon\Carbon;
 use App\Models\User;
+use App\Models\Wallet;
 use Jenssegers\Agent\Agent;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 use App\Http\Requests\UserRequest;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UpdateUserRequest;
 
@@ -65,8 +67,26 @@ class UserController extends Controller
 
     public function store(UserRequest $request)
     {
-        User::create($request->validated());
+        DB::beginTransaction();
+        
+        try {
+            $user = User::create($request->validated());
 
+        Wallet::firstOrCreate(
+            [
+            'user_id' => $user->id,
+            ],
+            [
+                'user_id' => $user->id,
+                'account_number' => '1234123412341234',
+            ]
+        );
+        } catch (\Exception $e) {
+            DB::rollBack();
+            return back()->withErrors(['error' => 'Something Wrong'])->withInput();
+        }
+        
+        DB::commit();
         return redirect()->route('users.index')->with(['success' => 'User successfully created.']);
     }
 
