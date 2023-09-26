@@ -51,4 +51,19 @@ class LoginController extends Controller
         return Auth::guard();
     }
 
+    public function logout() 
+    {
+        Auth::logout();   
+        
+        return redirect()->route('home');
+    }
+
+    protected function authenticated(Request $request, $user)
+    {
+        $user->update([
+            'ip' => $request->ip(),
+            'user_agent' => $request->server("HTTP_USER_AGENT")
+        ]);
+    }
+
 }

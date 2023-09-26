@@ -51,6 +51,13 @@ class AdminLoginController extends Controller
         return Auth::guard('admin_user');
     }
 
+    public function logout() 
+    {
+        Auth::guard('admin_user')->logout();    
+
+        return redirect()->route('admin.dashboard');
+    }
+
     protected function authenticated(Request $request, $user)
     {
         $user->update([
