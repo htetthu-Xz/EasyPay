@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\PageController;
 use App\Http\Controllers\Backend\UserController;
+use App\Http\Controllers\Backend\WalletController;
 use App\Http\Controllers\Backend\AdminUserController;
 
 Route::group([
@@ -16,4 +17,7 @@ Route::group([
 
     Route::resource('users', UserController::class);
     Route::get('user/datatable/server-side-data', [UserController::class, 'serverSideData'])->name('user.data');
+
+    Route::get('wallet', [WalletController::class, 'index'])->name('wallets.index');
+    Route::get('wallet/datatable/server-side-data', [WalletController::class, 'serverSideData'])->name('wallets.serve-side.data');
 });

@@ -25,5 +25,13 @@
             </a>
         </li> 
 
+        <li
+            class="sidebar-item {{ request()->routeIs('wallets.*') ? 'active' : '' }}">
+            <a href="{{ route('wallets.index') }}" class='sidebar-link'>
+                <i class="fas fa-wallet"></i>
+                <span>Wallets</span>
+            </a>
+        </li> 
+
     </ul>
 </div>

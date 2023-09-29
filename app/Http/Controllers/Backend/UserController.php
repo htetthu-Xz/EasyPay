@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Backend;
 
+use App\Helpers\AccountNumberGenerator;
 use Carbon\Carbon;
 use App\Models\User;
 use App\Models\Wallet;
@@ -72,18 +73,18 @@ class UserController extends Controller
         try {
             $user = User::create($request->validated());
 
-        Wallet::firstOrCreate(
-            [
-            'user_id' => $user->id,
-            ],
-            [
-                'user_id' => $user->id,
-                'account_number' => '1234123412341234',
-            ]
-        );
+            Wallet::firstOrCreate(
+                [
+                    'user_id' => $user->id,
+                ],
+                [
+                    'user_id' => $user->id,
+                    'account_number' => AccountNumberGenerator::GenerateNumber(),
+                ]
+            );
         } catch (\Exception $e) {
             DB::rollBack();
-            return back()->withErrors(['error' => 'Something Wrong'])->withInput();
+            return back()->withErrors(['error' => 'Something Wrong' . $e->getMessage()])->withInput();
         }
         
         DB::commit();
@@ -102,9 +103,29 @@ class UserController extends Controller
 
     public function update(UpdateUserRequest $request, User $user)
     {
-        $user->update($request->validated());
+        DB::beginTransaction();
+        
+        try {
+            
+            $user->update($request->validated());
 
-        return redirect()->route('users.index')->with(['success' => 'User successfully updated.']);
+            Wallet::firstOrCreate(
+                [
+                    'user_id' => $user->id,
+                ],
+                [
+                    'user_id' => $user->id,
+                    'account_number' => AccountNumberGenerator::GenerateNumber(),
+                ]
+            );
+            DB::commit();
+            return redirect()->route('users.index')->with(['success' => 'User successfully updated.']);
+            
+        } catch (\Exception $e) {
+            dd('f');
+            DB::rollBack();
+            return back()->withErrors(['error' => 'Something Wrong' . $e->getMessage()])->withInput();
+        }
     }
 
     public function destroy(Request $request, User $user)
