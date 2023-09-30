@@ -17,14 +17,16 @@
 
     <!-- Fontawesome icon -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    {{-- <link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet"> --}}
+    
+    {{-- awesome notifiction --}}
+    <link rel="stylesheet" href="{{ asset('plugins/awesome-notifications/dist/style.css') }}">
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('frontend/css/app.css') }}" rel="stylesheet">
 
     <link rel="stylesheet" href="{{ asset('frontend/css/style.css') }}">
 
-    @yield('css')
+    @stack('css')
 </head>
 <body>
     <div id="app">
@@ -108,7 +110,7 @@
 
         <div class="content">
             <div class="row justify-content-center">
-                <div class="col-8">
+                <div class="col-md-8 col-sm-12">
                     @yield('content')
                 </div>
             </div>
@@ -143,9 +145,24 @@
     </div>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('frontend/js/app.js') }}" defer></script>    
+    <script src="{{ asset('plugins/jquery-3.7.1.min.js') }}"></script>
+    <script src="{{ asset('plugins/awesome-notifications/dist/index.var.js') }}"></script>
 
-    @yield('script')
+    <script>
+        $(() => {
+            let token = document.head.querySelector('meta[name="csrf-token"]');
+            $.ajaxSetup({
+                headers : {
+                    'X-CSRF_TOKEN' : token.content,
+                    'Content-Type' : 'application/json',
+                    'Accept' : 'application/json'   
+                }
+            })
+        })
+    </script>
+
+    @stack('script')
 
 </body>
 </html>

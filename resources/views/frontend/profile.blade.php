@@ -34,7 +34,7 @@
                     <span><i class="fa-solid fa-angle-right"></i></span>
                 </div>
                 <hr>
-                <div class="d-flex justify-content-between">
+                <div class="d-flex justify-content-between logout">
                     <span>Logout</span>
                     <span><i class="fa-solid fa-right-from-bracket"></i></span>
                 </div>
@@ -42,3 +42,36 @@
         </div>
     </div>
 @endsection
+
+@push('script')
+<script>
+    $(() => {
+        $('.logout').on('click', function(e) {
+            e.preventDefault();
+            let notifier = new AWN();
+            let onOk = () => {
+                $.ajax({
+                    url : "{{ route('logout') }}",
+                    type : "POST",
+                    success : function() {
+                        window.location.replace("{{ route('login') }}");
+                    }
+                })
+            };
+            let onCancel = () => {
+                exit();
+            };
+            notifier.confirm(
+                'Are you sure want to logout?',
+                onOk,
+                onCancel,
+                {
+                    labels: {
+                        confirm: 'Logout'
+                    }
+                }
+            )
+        })
+    })
+</script>
+@endpush

@@ -135,11 +135,16 @@ body {
 /* ************** profile ******************* */
 
 .account {
-
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
 .account .profile {
     text-align: center;
+}
+
+.account .logout {
+    cursor: pointer;
 }
 
 .account .profile img {

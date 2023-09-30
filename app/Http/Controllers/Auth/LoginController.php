@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Http\JsonResponse;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Providers\RouteServiceProvider;
-use Carbon\Carbon;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class LoginController extends Controller
@@ -51,11 +52,13 @@ class LoginController extends Controller
         return Auth::guard();
     }
 
-    public function logout() 
+    public function logout(Request $request) 
     {
         Auth::logout();   
-        
-        return redirect()->route('home');
+
+        return $request->wantsJson()
+            ? new JsonResponse([], 204)
+            : redirect()->route('home');
     }
 
     protected function authenticated(Request $request, $user)
