@@ -1,0 +1,32 @@
+body {
+    background-color: #E9EFF5;
+}
+
+.btn-theme {
+    background-color: #405AA4;
+    color: #fafafa;
+    padding: 10px;
+}
+
+.btn-theme:hover {
+    background-color: #384f8f;
+    color: #f7f7f7;
+}
+
+/* ***************** auth-form ****************** */
+
+.auth-form {
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+    border: none;
+    border-radius: 10px;
+}
+
+.auth-form a {
+    color: #333;
+    text-decoration: none;
+}
+
+.auth-form a:hover {
+    color: #405AA4;
+    text-decoration: underline;
+}

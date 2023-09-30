@@ -6,7 +6,7 @@
     <div class="container">
         <div class="row justify-content-center align-items-center" style="height: 100vh;">
             <div class="col-md-6">
-                <div class="card">
+                <div class="card auth-form">
                     <div class="card-body">
                         <h3 class="text-center">Register</h3>
                         <p class="text-center text-muted">Fill the form to register.</p>
@@ -68,10 +68,10 @@
                                 @enderror
                             </div>
 
-                            <button type="submit" class="btn btn-primary my-3 btn-block w-100">Register</button>
+                            <button type="submit" class="btn btn-theme my-3 btn-block w-100">Register</button>
 
                             <div class="d-flex justify-content-between align-items-center">
-                                <a href="{{ route('register') }}">
+                                <a href="{{ route('login') }}">
                                     Alradsy have account? Login Here.
                                 </a>
                             </div>
