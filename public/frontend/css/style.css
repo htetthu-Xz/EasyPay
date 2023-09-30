@@ -1,5 +1,7 @@
 body {
     background-color: #E9EFF5;
+    font-size: 15px;
+    font-family: 'Overpass', sans-serif;
 }
 
 .btn-theme {
@@ -29,4 +31,127 @@ body {
 .auth-form a:hover {
     color: #405AA4;
     text-decoration: underline;
+}
+
+/* ************ header-menu ************** */
+
+.header-menu {
+    background-color: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 12px 0;
+    z-index: 999;
+}
+
+.logo {
+    width: 125px;
+    height: 35px;
+}
+
+.header-menu i {
+    font-size: 20px;
+    margin-top: 2px;
+}
+
+.header-menu h3 {
+    font-size: 22px;
+    transition: .3s;
+    margin-bottom: 0px;
+}   
+
+.header-menu a {
+    text-decoration: none;
+    color: #333;
+    transition: .3s;
+}
+
+.header-menu a:hover i {
+    color: #405AA4;
+    transition: .3s;
+}
+
+.header-menu a:hover p {
+    color: #405AA4;
+    transition: .3s;
+}
+
+/* ************* bottom-menu *************** */
+
+.bottom-menu {
+    background-color: #fff;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.bottom-menu i {
+    font-size: 20px;
+    margin-top: 12px;
+}
+
+.bottom-menu p {
+    margin-bottom: 12px;
+    font-size: 12px;
+    transition: .3s;
+}   
+
+.bottom-menu a {
+    text-decoration: none;
+    color: #333;
+    transition: .3s;
+    display: block;
+}
+
+.bottom-menu .active i {
+    color: #405AA4;
+    transition: .3s;
+}
+
+.bottom-menu .active p {
+    color: #405AA4;
+    transition: .3s;
+}
+
+.bottom-menu a:hover i {
+    color: #405AA4;
+    transition: .3s;
+}
+
+.bottom-menu a:hover p {
+    color: #405AA4;
+    transition: .3s;
+}
+
+/* *********** main content *************** */
+
+.content {
+    margin-top: 75px;
+    margin-bottom: 75px;
+}
+
+/* ************** profile ******************* */
+
+.account {
+
+}
+
+.account .profile {
+    text-align: center;
+}
+
+.account .profile img {
+    width: 90px;
+    height: 90px;
+    padding: 5px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    border-radius: 100%;
+}
+
+.account .card {
+    border-radius: 10px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
 }
