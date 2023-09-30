@@ -133,7 +133,7 @@
                             </a>
                         </div>
                         <div class="col-4 text-center">
-                            <a href="{{ route('profile') }}" class="{{ request()->routeIs('profile') ? 'active' : '' }}">
+                            <a href="{{ route('profile.page') }}" class="{{ request()->routeIs('profile.*') ? 'active' : '' }}">
                                 <i class="fa-solid fa-user"></i>
                                 <p>Account</p>
                             </a>

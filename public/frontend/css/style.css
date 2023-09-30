@@ -4,6 +4,12 @@ body {
     font-family: 'Overpass', sans-serif;
 }
 
+.card{
+    border-radius: 10px;
+    box-shadow: 0 1px 3px 0px rgba(0, 0, 0, 0.09);
+    background-color: #FFFFFF;
+}
+
 .btn-theme {
     background-color: #405AA4;
     color: #fafafa;
@@ -156,7 +162,21 @@ body {
     border-radius: 100%;
 }
 
-.account .card {
-    border-radius: 10px;
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+.account a{
+    color: #212529;
+    text-decoration: none;
+}
+
+.awn-btn-success {
+    background: #405AA4 !important;
+}
+
+.awn-btn-cancel {
+    background: #9FA6B2 !important;
+}
+
+/* ************* update-password ****************** */
+
+.update-password img {
+    width: 250px;
 }

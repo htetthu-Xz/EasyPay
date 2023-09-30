@@ -29,10 +29,10 @@
 
         <div class="card mt-3">
             <div class="card-body">
-                <div class="d-flex justify-content-between">
+                <a href="{{ route('profile.password.update.form') }}" class="d-flex justify-content-between">
                     <span>Update Password</span>
                     <span><i class="fa-solid fa-angle-right"></i></span>
-                </div>
+                </a>
                 <hr>
                 <div class="d-flex justify-content-between logout">
                     <span>Logout</span>
@@ -59,7 +59,7 @@
                 })
             };
             let onCancel = () => {
-                exit();
+                
             };
             notifier.confirm(
                 'Are you sure want to logout?',
