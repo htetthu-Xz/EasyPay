@@ -91,7 +91,7 @@
                         <div class="col-2 text-center">
                             <a href="{{ route('home') }}">
                                 @if (request()->routeIs('home') || request()->routeIs('profile.page') || request()->routeIs('scan'))
-                                    <img src="{{ asset('images/logo/easypay.png') }}" alt="" class="mb-1 logo mx-2">
+                                    <img src="{{ asset('images/logo/easypay.png') }}" alt="" class="mb-1 logo">
                                 @else
                                     <a href="#" class="btn-back">
                                         <i class="fa-solid fa-angle-left"></i>
@@ -114,7 +114,7 @@
             </div>
         </div>
 
-        <div class="content">
+        <div class="wapper container content">
             <div class="row justify-content-center">
                 <div class="col-md-8 col-sm-12">
                     @yield('content')

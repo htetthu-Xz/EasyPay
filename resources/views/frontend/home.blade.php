@@ -14,8 +14,8 @@
 
 @section('content')
 <div class="container">
-    <div class="d-flex justify-content-center">
-
+    <div class="row justify-content-center">
+        <p>home</p>
     </div>
 </div>
 @endsection
