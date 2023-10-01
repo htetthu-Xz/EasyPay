@@ -94,7 +94,7 @@ body {
 }
 
 .bottom-menu i {
-    font-size: 20px;
+    font-size: 18px;
     margin-top: 12px;
 }
 
@@ -191,6 +191,56 @@ body {
     font-size: 10px;
     margin-top: 5px;
     margin-right: 6px;
+}
+
+/* ************* scan tab ************** */
+
+.scan-tab {
+    width: 60px;
+    height: 60px;
+    background-color: #E9EFF5;
+    border-radius: 100%;
+    position: fixed;
+    bottom: 40px;
+    right: 0;
+    left: 0;
+    margin: 0 auto;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+}
+
+.scan-tab .inside {
+    width: 52px;
+    height: 52px;
+    background-color: #fff;
+    border-radius: 100%;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    /* animation: glow 2s infinite; */
+}
+
+.scan-tab .inside i {
+    margin: 0px;
+}
+
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 -10px #405AA4;
+    }
+
+    40% {
+        box-shadow: 0 0 15px #405AA4;
+    }
+
+    60% {
+        box-shadow: 0 0 15px #405AA4;
+    }
+
+    100% {
+        box-shadow: 0 0 -10px #405AA4;
+    }
 }
 
 /* ******* login footer ********** */

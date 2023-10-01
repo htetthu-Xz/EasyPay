@@ -26,6 +26,11 @@
 
     <link rel="stylesheet" href="{{ asset('frontend/css/style.css') }}">
 
+    <link
+        rel="stylesheet"
+        href="{{ asset('plugins/attention.css') }}"
+    />
+
     @stack('css')
 </head>
 <body>
@@ -123,22 +128,33 @@
         </div>
 
         <div class="bottom-menu">
+            <a href="" class="scan-tab">
+                <div class="inside u--bounce">
+                    <i class="fa-solid fa-qrcode"></i>
+                </div>
+            </a>
             <div class="row justify-content-center">
                 <div class="col-md-8">
                     <div class="row">
-                        <div class="col-4 text-center">
+                        <div class="col-3 text-center">
                             <a href="{{ route('home') }}" class="{{ request()->routeIs('home') ? 'active' : '' }}">
                                 <i class="fa-solid fa-house"></i>
                                 <p>Home</p>
                             </a>
                         </div>
-                        <div class="col-4 text-center">
-                            <a href="">
-                                <i class="fa-solid fa-qrcode"></i>
-                                <p>Scan</p>
+                        <div class="col-3 text-center">
+                            <a href="" class="{{ request()->routeIs('wallet') ? 'active' : '' }}">
+                                <i class="fa-solid fa-wallet"></i>
+                                <p>Wallet</p>
                             </a>
                         </div>
-                        <div class="col-4 text-center">
+                        <div class="col-3 text-center">
+                            <a href="" class="{{ request()->routeIs('transaction') ? 'active' : '' }}">
+                                <i class="fa-solid fa-clipboard"></i>
+                                <p>Transaction</p>
+                            </a>
+                        </div>
+                        <div class="col-3 text-center">
                             <a href="{{ route('profile.page') }}" class="{{ request()->routeIs('profile.*') ? 'active' : '' }}">
                                 <i class="fa-solid fa-user"></i>
                                 <p>Account</p>
