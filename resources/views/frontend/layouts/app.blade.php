@@ -143,7 +143,7 @@
                             </a>
                         </div>
                         <div class="col-3 text-center">
-                            <a href="" class="{{ request()->routeIs('wallet') ? 'active' : '' }}">
+                            <a href="{{ route('wallet.page') }}" class="{{ request()->routeIs('wallet.page') ? 'active' : '' }}">
                                 <i class="fa-solid fa-wallet"></i>
                                 <p>Wallet</p>
                             </a>

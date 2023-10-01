@@ -44,4 +44,9 @@ class PageController extends Controller
 
         return back()->with(['message' => 'Your old password is incorrect!']);
     }
+
+    public function wallet() 
+    {
+        return view('frontend.wallet');    
+    }
 }

@@ -243,6 +243,47 @@ body {
     }
 }
 
+/* ******** wallet-card ************** */
+
+.wallet {
+
+}
+
+.wallet .wallet-card {
+    background-color: #405AA4;
+    color: #fff;
+}
+
+.wallet .wallet-card span {
+    text-transform: uppercase;
+    font-size: 12px;
+    display: block;
+    margin-bottom: 5px;
+    color: #EDEDF5;
+}
+
+.wallet .wallet-card h4 {
+    font-size: 22px;
+    font-weight: 900;
+}
+
+.wallet .wallet-card h5 {
+    font-size: 18px;
+    font-weight: 900;
+}
+
+.wallet .wallet-card p {
+    font-size: 16px;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+.wallet .wallet-card .currency {
+    display: inline;
+    font-size: 16px;
+    color: #EDEDF5;
+}
+
 /* ******* login footer ********** */
 
 @media (max-width: 490px) {
