@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Frontend;
 
 use Illuminate\View\View;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class PageController extends Controller
 {
@@ -20,5 +23,25 @@ class PageController extends Controller
     public function getPasswordUpdateForm() 
     {
         return view('frontend.update_password');    
+    }
+
+    public function updatePassword(Request $request) 
+    {
+        $attributes = $request->validate([
+            'old_password' => 'required|min:8',
+            'new_password' => 'required|min:8'
+        ]);
+
+        $user = Auth::user();
+
+        if(Hash::check($attributes['old_password'], $user->password)) {
+            $user->update([
+                'password' => $attributes['new_password']
+            ]);
+
+            return redirect()->route('profile.page')->with(['success' => 'Your password successfully updated.']);
+        }
+
+        return back()->with(['message' => 'Your old password is incorrect!']);
     }
 }

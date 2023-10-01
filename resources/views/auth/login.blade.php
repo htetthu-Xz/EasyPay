@@ -15,7 +15,7 @@
 
                         <div class="form-group">
                             <label for="email">Email</label>
-                            <input type="text" class="form-control mt-1 @error('email') is-invalid @enderror" name="email" id="email" autocomplete="false">
+                            <input type="text" class="form-control mt-1 shadow-none @error('email') is-invalid @enderror" name="email" id="email" autocomplete="false">
                             
                             @error('email')
                                 <span class="invalid-feedback" role="alert">
@@ -26,7 +26,7 @@
 
                         <div class="form-group mt-3">
                             <label for="password">Password</label>
-                            <input type="password" class="form-control mt-1 @error('password') is-invalid @enderror" name="password"  autocomplete="false" id="password">
+                            <input type="password" class="form-control mt-1 shadow-none @error('password') is-invalid @enderror" name="password"  autocomplete="false" id="password">
                             
                             @error('password')
                                 <span class="invalid-feedback" role="alert">

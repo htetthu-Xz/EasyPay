@@ -17,4 +17,5 @@ Route::group([
     Route::get('/', [\App\Http\Controllers\Frontend\PageController::class, 'home'])->name('home');
     Route::get('/profile', [\App\Http\Controllers\Frontend\PageController::class, 'profile'])->name('profile.page');
     Route::get('/update-password', [\App\Http\Controllers\Frontend\PageController::class, 'getPasswordUpdateForm'])->name('profile.password.update.form');
+    Route::post('/update-password', [\App\Http\Controllers\Frontend\PageController::class, 'updatePassword'])->name('profile.password.update');
 });

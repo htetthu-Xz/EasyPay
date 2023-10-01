@@ -89,8 +89,14 @@
                 <div class="col-md-8">
                     <div class="row justify-content-center align-items-center">
                         <div class="col-4 text-center">
-                            <a href="">
-                                <img src="{{ asset('images/logo/easypay.png') }}" alt="" class="logo">
+                            <a href="{{ route('home') }}">
+                                @if (request()->routeIs('home') || request()->routeIs('profile.page') || request()->routeIs('scan'))
+                                    <img src="{{ asset('images/logo/easypay.png') }}" alt="" class="logo">
+                                @else
+                                    <a href="#" class="btn-back">
+                                        <i class="fa-solid fa-angle-left"></i>
+                                    </a>
+                                @endif
                             </a>
                         </div>
                         <div class="col-4 text-center">
@@ -148,6 +154,9 @@
     <script src="{{ asset('frontend/js/app.js') }}" defer></script>    
     <script src="{{ asset('plugins/jquery-3.7.1.min.js') }}"></script>
     <script src="{{ asset('plugins/awesome-notifications/dist/index.var.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    @include('frontend.layouts.toast')
 
     <script>
         $(() => {
@@ -158,6 +167,11 @@
                     'Content-Type' : 'application/json',
                     'Accept' : 'application/json'   
                 }
+            });
+
+            $('.btn-back').on('click', function() {
+                window.history.go(-1);
+                return false;
             })
         })
     </script>
