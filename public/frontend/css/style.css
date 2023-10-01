@@ -52,7 +52,7 @@ body {
 }
 
 .logo {
-    width: 125px;
+    width: 150px;
     height: 35px;
 }
 
@@ -176,6 +176,10 @@ body {
 }
 
 /* ************* update-password ****************** */
+.update-password {
+    margin-left: 20px;
+    margin-right: 20px;
+}
 
 .update-password img {
     width: 250px;
@@ -190,3 +194,48 @@ body {
     margin-top: 5px;
     margin-right: 6px;
 }
+
+/* ******* login footer ********** */
+
+@media (max-width: 490px) {
+    .login-footer a {
+        font-size: 12px;
+    }
+
+    .btn-theme {
+        margin-bottom: 10px !important;
+        padding: 7px;
+    }
+
+    .container p {
+        font-size: 12px;
+    }
+
+    .register-footer a {
+        font-size: 12px;
+    }
+
+    .container input {
+        font-size: 14px;
+    }
+
+    .logo {
+        width: 113px;
+        height: 31px;
+    }
+
+    .header-menu i {
+        font-size: 17px;
+    }
+
+    .header-menu h3 {
+        font-size: 15px;
+    }
+
+    #awn-popup-wrapper .awn-popup-body {
+        max-width: 290px;
+        min-width: 200px;
+    }
+
+}
+  

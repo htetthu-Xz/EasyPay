@@ -15,7 +15,7 @@
 
                             <div class="form-group">
                                 <label for="name">Name</label>
-                                <input type="text" class="form-control mt-1 @error('name') is-invalid @enderror" name="name" id="name" autocomplete="false">
+                                <input type="text" class="form-control shadow-none mt-1 @error('name') is-invalid @enderror" name="name" id="name" autocomplete="false">
                                 
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
@@ -26,7 +26,7 @@
 
                             <div class="form-group">
                                 <label for="email">Email</label>
-                                <input type="text" class="form-control mt-1 @error('email') is-invalid @enderror" name="email" id="email" autocomplete="false">
+                                <input type="text" class="form-control shadow-none mt-1 @error('email') is-invalid @enderror" name="email" id="email" autocomplete="false">
                                 
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
@@ -37,7 +37,7 @@
 
                             <div class="form-group">
                                 <label for="phone">Phone</label>
-                                <input type="text" class="form-control mt-1 @error('phone') is-invalid @enderror" name="phone" id="phone" autocomplete="false">
+                                <input type="text" class="form-control shadow-none mt-1 @error('phone') is-invalid @enderror" name="phone" id="phone" autocomplete="false">
                                 
                                 @error('phone')
                                     <span class="invalid-feedback" role="alert">
@@ -48,7 +48,7 @@
 
                             <div class="form-group mt-3">
                                 <label for="password">Password</label>
-                                <input type="password" class="form-control mt-1 @error('password') is-invalid @enderror" name="password"  autocomplete="false" id="password">
+                                <input type="password" class="form-control shadow-none mt-1 @error('password') is-invalid @enderror" name="password"  autocomplete="false" id="password">
                                 
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
@@ -59,7 +59,7 @@
 
                             <div class="form-group mt-3">
                                 <label for="con-password">Confirm Password</label>
-                                <input type="password" class="form-control mt-1 @error('password_confirmation') is-invalid @enderror" name="password_confirmation"  autocomplete="false" id="con-password">
+                                <input type="password" class="form-control shadow-none mt-1 @error('password_confirmation') is-invalid @enderror" name="password_confirmation"  autocomplete="false" id="con-password">
                                 
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
@@ -70,7 +70,7 @@
 
                             <button type="submit" class="btn btn-theme my-3 btn-block w-100">Register</button>
 
-                            <div class="d-flex justify-content-between align-items-center">
+                            <div class="d-flex justify-content-between align-items-center register-footer">
                                 <a href="{{ route('login') }}">
                                     Alradsy have account? Login Here.
                                 </a>

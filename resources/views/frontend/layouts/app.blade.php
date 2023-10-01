@@ -87,11 +87,11 @@
         <div class="header-menu">
             <div class="row justify-content-center">
                 <div class="col-md-8">
-                    <div class="row justify-content-center align-items-center">
-                        <div class="col-4 text-center">
+                    <div class="d-flex justify-content-center align-items-center">
+                        <div class="col-2 text-center">
                             <a href="{{ route('home') }}">
                                 @if (request()->routeIs('home') || request()->routeIs('profile.page') || request()->routeIs('scan'))
-                                    <img src="{{ asset('images/logo/easypay.png') }}" alt="" class="logo">
+                                    <img src="{{ asset('images/logo/easypay.png') }}" alt="" class="mb-1 logo mx-2">
                                 @else
                                     <a href="#" class="btn-back">
                                         <i class="fa-solid fa-angle-left"></i>
@@ -99,12 +99,12 @@
                                 @endif
                             </a>
                         </div>
-                        <div class="col-4 text-center">
+                        <div class="col-8 text-center">
                             <a href="">
-                                <h3 class="fw-bold">@yield('title')</h3>
+                                <h3 class="fw-bold app-name">@yield('title')</h3>
                             </a>
                         </div>
-                        <div class="col-4 text-center">
+                        <div class="col-2 text-center">
                             <a href="">
                                 <i class="fa-solid fa-bell"></i>
                             </a>

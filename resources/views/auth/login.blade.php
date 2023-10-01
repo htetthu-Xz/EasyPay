@@ -5,7 +5,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center align-items-center" style="height: 100vh;">
-        <div class="col-md-6">
+        <div class="col-md-6 col-sm-12">
             <div class="card auth-form">
                 <div class="card-body">
                     <h3 class="text-center">Login</h3>
@@ -37,13 +37,13 @@
 
                         <button type="submit" class="btn btn-theme my-3 btn-block w-100">Log In</button>
 
-                        <div class="d-flex justify-content-between align-items-center">
+                        <div class="d-flex justify-content-between align-items-center login-footer">
                             <a href="{{ route('register') }}">
                                 Don't have account? Register here.
                             </a>
                             @if (Route::has('password.request'))
                                 <a class="btn btn-link" href="{{ route('password.request') }}">
-                                    {{ __('Forgot Your Password?') }}
+                                    {{ __('Forgot Password?') }}
                                 </a>
                             @endif
                         </div>
