@@ -138,10 +138,55 @@ body {
     margin-bottom: 75px;
 }
 
+/* ************* home **************** */
+
+.home {
+    margin-bottom: 60px;
+}
+
+.home .profile {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.home .profile h3 {
+    margin-bottom: 0px;
+    font-size: 18px;
+}
+
+.home .profile p {
+    margin-bottom: 0px;
+    font-size: 12px;
+}
+
+.home .profile img {
+    width: 60px;
+    height: 60px;
+    padding: 5px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    border-radius: 100%;
+    margin-right: 15px;
+}
+
+.home .avatar {
+    text-align: center;
+}
+
+.home .qr-box img {
+    width: 30px;
+    height: 30px;
+}
+
+.home .qr-box span {
+    margin-left: 20px;
+}
+
 /* ************** profile ******************* */
 
 .account {
-
+    margin-bottom: 60px;
 }
 
 .account .profile {
@@ -176,7 +221,7 @@ body {
 
 /* ************* update-password ****************** */
 .update-password {
-
+    margin-bottom: 60px;
 }
 
 .update-password img {

@@ -95,7 +95,7 @@
                     <div class="d-flex justify-content-center align-items-center">
                         <div class="col-2 text-center">
                             <a href="{{ route('home') }}">
-                                @if (request()->routeIs('home') || request()->routeIs('profile.page') || request()->routeIs('scan'))
+                                @if (request()->routeIs('home') || request()->routeIs('profile.page') || request()->routeIs('wallet.page'))
                                     <img src="{{ asset('images/logo/easypay.png') }}" alt="" class="mb-1 logo">
                                 @else
                                     <a href="#" class="btn-back">

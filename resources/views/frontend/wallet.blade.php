@@ -8,7 +8,7 @@
             <div class="card-body">
                 <div class="mb-3">
                     <span>Balance</span>
-                    <h4>{{ number_format(auth()->user()->Wallet ? auth()->user()->Wallet->amount : '0') }} <span class="currency">MMK</span></h4>
+                    <h4>{{ number_format(auth()->user()->Wallet ? auth()->user()->Wallet->amount : '0', 2) }} <span class="currency">MMK</span></h4>
                 </div>
                 <div class="mb-4">
                     <span>Account Number</span>
