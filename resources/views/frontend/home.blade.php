@@ -47,7 +47,7 @@
         <div class="col-12 mt-3">
             <div class="card function-box">
                 <div class="card-body">
-                    <a href="{{ route('profile.password.update.form') }}" class="d-flex justify-content-between">
+                    <a href="{{ route('transfer.index') }}" class="d-flex justify-content-between">
                         <span><img src="{{ asset('images/img/transfer-money.png') }}" alt="">Transfer</span>
                         <span><i class="fa-solid fa-angle-right"></i></span>
                     </a>
