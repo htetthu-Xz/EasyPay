@@ -183,6 +183,21 @@ body {
     margin-left: 20px;
 }
 
+.home .qr-box .card-body {
+    padding: 1rem;
+}
+
+.home a {
+    text-decoration: none;
+    color: #333;
+}
+
+.home .function-box img {
+    width: 28px;
+    height: 28px;
+    margin-right: 10px;
+}
+
 /* ************** profile ******************* */
 
 .account {
@@ -369,6 +384,19 @@ body {
     #awn-popup-wrapper .awn-popup-body {
         max-width: 290px;
         min-width: 200px;
+    }
+
+    .home .qr-box span {
+        margin-left: 6px;
+    }
+
+    .home .qr-box .card-body {
+        padding: 0.8rem;
+    }
+
+    .home .qr-box img {
+        width: 25px;
+        height: 25px;
     }
 
 }
