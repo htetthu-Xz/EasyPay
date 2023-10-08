@@ -16,6 +16,17 @@ body {
     padding: 10px;
 }
 
+.btn-check-phone {
+    background-color: #405AA4;
+    color: #fafafa;
+    cursor: pointer;
+}
+
+.btn-check-phone:hover {
+    background-color: #384f8f;
+    color: #f7f7f7;
+}
+
 .btn-theme:hover {
     background-color: #384f8f;
     color: #f7f7f7;
@@ -257,6 +268,47 @@ body {
     font-size: 10px;
     margin-top: 5px;
     margin-right: 6px;
+}
+
+.swal2-icon-info .swal2-icon {
+    margin-top: 15px;
+    width: 3rem;
+    height: 3rem;
+}
+
+.swal2-icon-info .swal2-icon-content {
+    font-size: 2.2rem !important;
+}
+
+.swal2-icon-info .swal2-title {
+    padding: .2em 1em 0;
+}
+
+.swal2-icon-info .swal2-confirm {
+    background-color: #405AA4 !important;
+    color: #fafafa !important;
+    padding: 10px !important;
+}
+
+.swal2-icon-error .swal2-icon {
+    margin-top: 15px;
+    width: 5rem;
+    height: 5rem;
+}
+
+.swal2-icon-error .swal2-icon-content {
+    font-size: 2.2rem !important;
+}
+
+.swal2-icon-error .swal2-title {
+    padding: .2em 1em 0;
+}
+
+.swal2-icon-error .swal2-confirm {
+    background-color: #405AA4 !important;
+    color: #fafafa !important;
+    width: 100px;
+    padding: 10px !important;
 }
 
 /* ************* scan tab ************** */
