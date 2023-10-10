@@ -11,7 +11,7 @@
                 <p class="mb-0 text-muted">{{ auth()->user()->phone }}</p>
             </div>
 
-            <form action="{{ route('transfer.confirm') }}" method="POST">
+            <form action="{{ route('transfer.complete') }}" id="con-form" method="POST">
                 @csrf
                 <input type="hidden" name="receiver_id" value="{{ $receiver_user->id }}">
                 <div class="form-group mb-2">
@@ -68,7 +68,7 @@
                             },
                             success : function(res) {
                                 if(res.status == 'success') {
-                                    console.log();
+                                    $('#con-form').submit();
                                 } else {
                                     Swal.fire({
                                     icon: 'error',

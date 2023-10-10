@@ -5,13 +5,16 @@ namespace App\Http\Controllers\Frontend;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\TransferFormRequest;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use App\Http\Requests\TransferFormRequest;
 
 class MoneyTransferController extends Controller
 {
     public function index() 
     {
+        $this->destroyTransferData();
+
         return view('frontend.transfer.index');    
     }
 
@@ -32,8 +35,6 @@ class MoneyTransferController extends Controller
         $attributes['receiver_id'] = $receiver_user->id;
 
         $this->setTransferData($attributes);
-
-        dd(session('data'));
 
         return view('frontend.transfer.confirm', ['attributes' => $attributes, 'receiver_user' => $receiver_user]);    
     }
@@ -85,18 +86,28 @@ class MoneyTransferController extends Controller
 
     public function transferComplete(Request $request) 
     {
+        $from_account = Auth::user();
         
+        $transfer_data = $this->getTransferData();
+
+        $to_account = User::where('id', $transfer_data['receiver_id'])->first();
+
+        $to_account->Wallet->increment('amount', $transfer_data['amount']);
+
+        $from_account->Wallet->decrement('amount', $transfer_data['amount']);
+
+        return redirect()->route('home')->with('success', 'Money successfully transferred.');
     }
 
     private function setTransferData($data) {
         session()->put('data', $data);
     }
 
-    private function getTransferData($data) {
+    private function getTransferData() {
         return session('data');
     }
 
-    private function destroyTransferData($data) {
+    private function destroyTransferData() {
         session()->forget('data');
     }
 }
