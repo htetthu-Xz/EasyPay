@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\Backend;
 
-use App\Helpers\AccountNumberGenerator;
 use Carbon\Carbon;
 use App\Models\User;
 use App\Models\Wallet;
 use Jenssegers\Agent\Agent;
 use Illuminate\Http\Request;
+use App\Helpers\UuidGenerator;
 use Yajra\DataTables\DataTables;
 use App\Http\Requests\UserRequest;
 use Illuminate\Support\Facades\DB;
@@ -79,7 +79,7 @@ class UserController extends Controller
                 ],
                 [
                     'user_id' => $user->id,
-                    'account_number' => AccountNumberGenerator::GenerateNumber(),
+                    'account_number' => UuidGenerator::GenerateAccountNumber(),
                 ]
             );
         } catch (\Exception $e) {
@@ -115,7 +115,7 @@ class UserController extends Controller
                 ],
                 [
                     'user_id' => $user->id,
-                    'account_number' => AccountNumberGenerator::GenerateNumber(),
+                    'account_number' => UuidGenerator::GenerateAccountNumber(),
                 ]
             );
             DB::commit();

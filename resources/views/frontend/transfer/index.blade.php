@@ -6,6 +6,12 @@
 <div class="transfer">
     <div class="card">
         <div class="card-body">
+            @if (session()->has('message'))
+                <div class="alert alert-danger alert-dismissible p-2 fade show" role="alert">
+                    <p class="mb-0 d-inline align-middle mx-2">{{ session('message') }}</p>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            @endif
             <div class="form-group mb-3">
                 <label for="">From</label>
                 <p class="mb-1 text-muted">{{ auth()->user()->name }}</p>

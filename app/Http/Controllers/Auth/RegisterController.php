@@ -4,7 +4,10 @@ namespace App\Http\Controllers\Auth;
 
 use Carbon\Carbon;
 use App\Models\User;
+use App\Models\Wallet;
 use Illuminate\Http\Request;
+use App\Helpers\UuidGenerator;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Support\Facades\Validator;
@@ -81,5 +84,23 @@ class RegisterController extends Controller
             'login_at' => Carbon::now(),
             'user_agent' => $request->server("HTTP_USER_AGENT")
         ]);
+
+        DB::beginTransaction();
+
+        try {
+            
+            Wallet::firstOrCreate(
+                [
+                    'user_id' => $user->id,
+                ],
+                [
+                    'user_id' => $user->id,
+                    'account_number' => UuidGenerator::GenerateAccountNumber(),
+                ]
+            );
+        } catch (\Exception $e) {
+            DB::rollBack();
+        }
+        DB::commit();
     }
 }

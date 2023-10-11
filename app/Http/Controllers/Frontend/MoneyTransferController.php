@@ -2,12 +2,16 @@
 
 namespace App\Http\Controllers\Frontend;
 
+use App\Helpers\UuidGenerator;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\TransferFormRequest;
+use App\Models\Transaction;
+use Exception;
 
 class MoneyTransferController extends Controller
 {
@@ -86,17 +90,51 @@ class MoneyTransferController extends Controller
 
     public function transferComplete(Request $request) 
     {
-        $from_account = Auth::user();
+        DB::beginTransaction();
+
+        try {
+            $from_account = Auth::user();
         
-        $transfer_data = $this->getTransferData();
+            $transfer_data = $this->getTransferData();
+    
+            $to_account = User::where('id', $transfer_data['receiver_id'])->first();
+    
+            $to_account->Wallet->increment('amount', $transfer_data['amount']);
+    
+            $from_account->Wallet->decrement('amount', $transfer_data['amount']);
 
-        $to_account = User::where('id', $transfer_data['receiver_id'])->first();
+            $ref_number = UuidGenerator::GenerateRefNumber();
 
-        $to_account->Wallet->increment('amount', $transfer_data['amount']);
+            $from_account_transaction = Transaction::create([
+                'ref_no' => $ref_number,
+                'trx_id' => UuidGenerator::GenerateTransactionId(),
+                'user_id' => $from_account->id,
+                'type' => 2,
+                'amount' => $transfer_data['amount'],
+                'source_id' => $to_account->id,
+                'description' => $transfer_data['description'],
+            ]);
 
-        $from_account->Wallet->decrement('amount', $transfer_data['amount']);
+            $to_account_transaction = Transaction::create([
+                'ref_no' => $ref_number,
+                'trx_id' => UuidGenerator::GenerateTransactionId(),
+                'user_id' => $to_account->id,
+                'type' => 1,
+                'amount' => $transfer_data['amount'],
+                'source_id' => $from_account->id,
+                'description' => $transfer_data['description'],
+            ]);
 
-        return redirect()->route('home')->with('success', 'Money successfully transferred.');
+            $this->destroyTransferData();
+            
+            DB::commit();
+            
+            return redirect()->route('home')->with('success', 'Money successfully transferred.');
+        } catch (Exception $e) {
+            DB::rollBack();
+
+            return redirect()->route('transfer.index')->with('message', 'Something wrong.');
+        }
     }
 
     private function setTransferData($data) {

@@ -6,14 +6,15 @@
 <div class="transfer">
     <div class="card">
         <div class="card-body">
-            <div class="form-group mb-2">
-                <label for="" class="mb-0"><strong>From <span class="text-success">(<i class="fa-solid fa-user mx-1"></i>{{ auth()->user()->name }})</span></strong></label>
-                <p class="mb-0 text-muted">{{ auth()->user()->phone }}</p>
-            </div>
-
-            <form action="{{ route('transfer.complete') }}" id="con-form" method="POST">
+            <form method="POST" action="{{ route('transfer.complete') }}" id="con-form">
                 @csrf
                 <input type="hidden" name="receiver_id" value="{{ $receiver_user->id }}">
+
+                <div class="form-group mb-2">
+                    <label for="" class="mb-0"><strong>From <span class="text-success">(<i class="fa-solid fa-user mx-1"></i>{{ auth()->user()->name }})</span></strong></label>
+                    <p class="mb-0 text-muted">{{ auth()->user()->phone }}</p>
+                </div>
+
                 <div class="form-group mb-2">
                     <label for="" class="mb-0"><strong>To <span class="text-success">(<i class="fa-solid fa-user mx-1"></i>{{ $receiver_user->name }})</span></strong></label>
                     <p class="text-muted mb-1">
