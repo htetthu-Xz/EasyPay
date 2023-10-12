@@ -26,6 +26,10 @@ Route::group([
 
     #Wallet
     Route::get('/wallet', [\App\Http\Controllers\Frontend\PageController::class, 'wallet'])->name('wallet.page');
+    
+    #Transaction
+    Route::get('/transaction', [\App\Http\Controllers\Frontend\PageController::class, 'transaction'])->name('transaction.page');
+    Route::get('/transaction/{transaction:trx_id}', [\App\Http\Controllers\Frontend\PageController::class, 'transactionDetail'])->name('transaction.detail');
 
     #Profile
     Route::get('/profile', [\App\Http\Controllers\Frontend\PageController::class, 'profile'])->name('profile.page');

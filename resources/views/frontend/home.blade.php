@@ -57,7 +57,7 @@
                         <span><i class="fa-solid fa-angle-right"></i></span>
                     </a>
                     <hr>
-                    <a href="{{ route('profile.password.update.form') }}" class="d-flex justify-content-between">
+                    <a href="{{ route('transaction.page') }}" class="d-flex justify-content-between">
                         <span><img src="{{ asset('images/img/transaction.png') }}" alt="">Transaction</span>
                         <span><i class="fa-solid fa-angle-right"></i></span>
                     </a>

@@ -4,6 +4,11 @@ body {
     font-family: 'Overpass', sans-serif;
 }
 
+.infinite-scroll img {
+    width: 80px;
+    height: 80px;
+}
+
 .card{
     border-radius: 10px;
     box-shadow: 0 1px 3px 0px rgba(0, 0, 0, 0.09);
@@ -311,6 +316,23 @@ body {
     padding: 10px !important;
 }
 
+/* pagination */
+
+.pagination .page-item a{
+    color: #405AA4;
+}
+
+.pagination .page-item a:focus{
+    border: none;
+    outline: none;
+    box-shadow: none;
+}
+
+.page-link.active, .active > .page-link {
+    background-color: #405AA4 !important;
+    z-index: 0 !important;
+}
+
 /* ************* scan tab ************** */
 
 .scan-tab {
@@ -402,6 +424,29 @@ body {
     color: #EDEDF5;
 }
 
+/************* transaction *****************/
+
+.transaction {
+    margin-bottom: 60px;
+}
+
+.transaction a {
+    text-decoration: none;
+}
+/*************** transaction detail *****************/
+
+.transaction-detail {
+    margin-bottom: 60px;
+}
+
+.transaction-detail img {
+    width: 60px;
+}
+
+.transaction-detail hr {
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
+}
 /* ******* login footer ********** */
 
 @media (max-width: 490px) {

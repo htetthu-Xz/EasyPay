@@ -51,7 +51,7 @@
                 Swal.fire({
                     title: 'Please fill your password.',
                     icon: 'info',
-                    html: '<input type="password" class="form-control password text-center shadow-none" name="password" />',
+                    html: '<input type="password" class="form-control password text-center shadow-none" name="password" autofocus/>',
                     showCloseButton: true,
                     showCancelButton: true,
                     reverseButtons: true,

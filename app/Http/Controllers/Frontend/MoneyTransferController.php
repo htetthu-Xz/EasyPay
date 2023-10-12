@@ -129,7 +129,7 @@ class MoneyTransferController extends Controller
             
             DB::commit();
             
-            return redirect()->route('home')->with('success', 'Money successfully transferred.');
+            return redirect()->route('transaction.detail', $from_account_transaction->trx_id)->with('success', 'Money successfully transferred.');
         } catch (Exception $e) {
             DB::rollBack();
 

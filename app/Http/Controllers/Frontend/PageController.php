@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Frontend;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Transaction;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
@@ -48,5 +49,18 @@ class PageController extends Controller
     public function wallet() 
     {
         return view('frontend.wallet');    
+    }
+
+    public function transaction() 
+    {
+        $transactions = Transaction::with('User', 'Source')->where('user_id', auth()->user()->id)->orderBy('created_at', 'DESC')->paginate(5);
+
+        return view('frontend.transaction', ['transactions' => $transactions]);    
+    }
+
+    public function transactionDetail($trx_id) 
+    {
+        $transaction = Transaction::with('User', 'Source')->where('user_id', auth()->user()->id)->where('trx_id', $trx_id)->first();
+        return view('frontend.transaction_detail', ['transaction' => $transaction]);    
     }
 }
