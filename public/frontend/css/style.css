@@ -433,6 +433,11 @@ body {
 .transaction a {
     text-decoration: none;
 }
+
+.transaction select {
+    cursor: pointer;
+}
+
 /*************** transaction detail *****************/
 
 .transaction-detail {
@@ -500,6 +505,11 @@ body {
     .home .qr-box img {
         width: 25px;
         height: 25px;
+    }
+
+    .transaction select,input {
+        font-size: 13px !important;
+        cursor: pointer;
     }
 
 }

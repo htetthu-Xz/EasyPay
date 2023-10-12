@@ -51,9 +51,21 @@ class PageController extends Controller
         return view('frontend.wallet');    
     }
 
-    public function transaction() 
+    public function transaction(Request $request) 
     {
-        $transactions = Transaction::with('User', 'Source')->where('user_id', auth()->user()->id)->orderBy('created_at', 'DESC')->paginate(5);
+        $transactions = Transaction::with('User', 'Source')
+                    ->where('user_id', auth()->user()->id)
+                    ->orderBy('created_at', 'DESC');
+
+        if($request->type) {
+            $transactions = $transactions->where('type', $request->type);
+        }
+
+        if($request->date) {
+            $transactions = $transactions->whereDate('created_at', $request->date);
+        }
+
+        $transactions = $transactions->paginate(5);
 
         return view('frontend.transaction', ['transactions' => $transactions]);    
     }
