@@ -507,7 +507,7 @@ body {
         height: 25px;
     }
 
-    .transaction select,input {
+    .transaction select, .transaction input {
         font-size: 13px !important;
         cursor: pointer;
     }

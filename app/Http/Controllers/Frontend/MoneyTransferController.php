@@ -32,6 +32,10 @@ class MoneyTransferController extends Controller
             return back()->withErrors(['to_phone' => 'This phone number is not registered with Easy Pay.'])->withInput();
         }
 
+        if(auth()->user()->Wallet->amount < $attributes['amount']) {
+            return back()->withErrors(['amount' => 'The money amount is insufficient to transfer.'])->withInput();
+        }
+
         if(auth()->user()->phone == $attributes['to_phone']) {
             return back()->withErrors(['to_phone' => 'You can not transfer money to yourself.'])->withInput();
         }
@@ -124,10 +128,10 @@ class MoneyTransferController extends Controller
                 'source_id' => $from_account->id,
                 'description' => $transfer_data['description'],
             ]);
-
-            $this->destroyTransferData();
             
             DB::commit();
+
+            $this->destroyTransferData();
             
             return redirect()->route('transaction.detail', $from_account_transaction->trx_id)->with('success', 'Money successfully transferred.');
         } catch (Exception $e) {
