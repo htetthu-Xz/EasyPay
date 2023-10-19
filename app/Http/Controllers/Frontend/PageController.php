@@ -75,4 +75,14 @@ class PageController extends Controller
         $transaction = Transaction::with('User', 'Source')->where('user_id', auth()->user()->id)->where('trx_id', $trx_id)->first();
         return view('frontend.transaction_detail', ['transaction' => $transaction]);    
     }
+
+    public function receiveQR() 
+    {
+        return view('frontend.receive_qr');    
+    }
+
+    public function scanAndPay() 
+    {
+        return view('frontend.scan_qr');    
+    }
 }

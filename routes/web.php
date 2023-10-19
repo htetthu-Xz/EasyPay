@@ -37,4 +37,9 @@ Route::group([
     #Password Update
     Route::get('/update-password', [\App\Http\Controllers\Frontend\PageController::class, 'getPasswordUpdateForm'])->name('profile.password.update.form');
     Route::post('/update-password', [\App\Http\Controllers\Frontend\PageController::class, 'updatePassword'])->name('profile.password.update');
+
+    #QR
+    Route::get('/receive-qr', [\App\Http\Controllers\Frontend\PageController::class, 'receiveQR'])->name('receive.qr');
+    Route::get('/scan-and-pay', [\App\Http\Controllers\Frontend\PageController::class, 'scanAndPay'])->name('scan.qr');
+
 });

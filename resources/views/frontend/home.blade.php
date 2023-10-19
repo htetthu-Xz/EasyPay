@@ -28,20 +28,24 @@
 
     <div class="row mt-4">
         <div class="col-6">
-            <div class="card qr-box">
-                <div class="card-body">
-                    <img src="{{ asset('images/img/qr-scan.png') }}" alt="">
-                    <span>Scan & Pay</span>
+            <a href="{{ route('scan.qr') }}">
+                <div class="card qr-box">
+                    <div class="card-body">
+                        <img src="{{ asset('images/img/qr-scan.png') }}" alt="">
+                        <span>Scan & Pay</span>
+                    </div>
                 </div>
-            </div>
+            </a>
         </div>
         <div class="col-6">
-            <div class="card qr-box">
-                <div class="card-body">
-                    <img src="{{ asset('images/img/qr-code.png') }}" alt="">
-                    <span>Receive QR</span>
+            <a href="{{ route('receive.qr') }}">
+                <div class="card qr-box">
+                    <div class="card-body">
+                        <img src="{{ asset('images/img/qr-code.png') }}" alt="">
+                        <span>Receive QR</span>
+                    </div>
                 </div>
-            </div>
+            </a>
         </div>
 
         <div class="col-12 mt-3">

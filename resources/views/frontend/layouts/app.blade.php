@@ -174,6 +174,8 @@
 
     @include('frontend.layouts.toast')
 
+    @stack('script')
+
     <script>
         $(() => {
             let token = document.head.querySelector('meta[name="csrf-token"]');
@@ -192,7 +194,7 @@
         })
     </script>
 
-    @stack('script')
+
 
 </body>
 </html>

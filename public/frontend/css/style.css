@@ -214,6 +214,13 @@ body {
     margin-right: 10px;
 }
 
+/* *************** scan $ pay **************** */
+
+.scan-qr .scan img {
+    width: 20px;
+    height: 20px;
+}
+
 /* **************** Transfer ****************** */
 
 .transfer {
