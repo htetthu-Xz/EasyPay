@@ -6,6 +6,12 @@
     <div class="scan-qr">
         <div class="card">
             <div class="card-body">
+                @if (session()->has('message'))
+                    <div class="alert alert-danger alert-dismissible p-2 fade show" role="alert">
+                        <p class="mb-0 d-inline align-middle mx-2">{{ session('message') }}</p>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                @endif
                 <div class="text-center">
                     <img src="{{ asset('images/img/qr-code-scan.png') }}" class="mx-auto" alt="" style="width: 220px;display:block;">
                     <p class="mb-1 mt-3">Click button, put QR code in the frame and pay.</p>

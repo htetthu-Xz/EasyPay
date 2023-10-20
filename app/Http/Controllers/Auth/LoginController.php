@@ -61,6 +61,11 @@ class LoginController extends Controller
             : redirect()->route('home');
     }
 
+    public function username()
+    {
+        return 'phone';
+    }
+
     protected function authenticated(Request $request, $user)
     {
         $user->update([

@@ -14,10 +14,10 @@
                         @csrf
 
                         <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="text" class="form-control mt-1 shadow-none @error('email') is-invalid @enderror" name="email" id="email" autocomplete="false">
+                            <label for="phone">Phone</label>
+                            <input type="text" class="form-control mt-1 shadow-none @error('phone') is-invalid @enderror" name="phone" id="phone" autocomplete="false">
                             
-                            @error('email')
+                            @error('phone')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>

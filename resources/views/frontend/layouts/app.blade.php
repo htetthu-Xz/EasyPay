@@ -128,7 +128,7 @@
         </div>
 
         <div class="bottom-menu">
-            <a href="" class="scan-tab">
+            <a href="{{ route('scan.qr') }}" class="scan-tab">
                 <div class="inside u--bounce">
                     <i class="fa-solid fa-qrcode"></i>
                 </div>

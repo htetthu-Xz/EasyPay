@@ -92,7 +92,7 @@ class PageController extends Controller
         $to_account = User::where('phone', $request->to_phone)->first();
 
         if(!$to_account || auth()->user()->phone == $request->to_phone) {
-            return back()->withErrors(['fail' => 'QR code is invalid.']);
+            return back()->with(['message' => 'QR code is invalid.']);
         }
 
         return view('frontend.scan_pay_form', ['to_account' => $to_account]);    
