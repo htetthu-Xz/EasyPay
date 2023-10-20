@@ -41,5 +41,6 @@ Route::group([
     #QR
     Route::get('/receive-qr', [\App\Http\Controllers\Frontend\PageController::class, 'receiveQR'])->name('receive.qr');
     Route::get('/scan-and-pay', [\App\Http\Controllers\Frontend\PageController::class, 'scanAndPay'])->name('scan.qr');
+    Route::get('/scan-and-pay-form', [\App\Http\Controllers\Frontend\PageController::class, 'scanAndPayForm'])->name('scan.pay.form');
 
 });

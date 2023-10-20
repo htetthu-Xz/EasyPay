@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\Frontend;
 
+use App\Models\User;
 use Illuminate\View\View;
+use App\Models\Transaction;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Transaction;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
@@ -84,5 +85,16 @@ class PageController extends Controller
     public function scanAndPay() 
     {
         return view('frontend.scan_qr');    
+    }
+
+    public function scanAndPayForm(Request $request) 
+    {
+        $to_account = User::where('phone', $request->to_phone)->first();
+
+        if(!$to_account || auth()->user()->phone == $request->to_phone) {
+            return back()->withErrors(['fail' => 'QR code is invalid.']);
+        }
+
+        return view('frontend.scan_pay_form', ['to_account' => $to_account]);    
     }
 }

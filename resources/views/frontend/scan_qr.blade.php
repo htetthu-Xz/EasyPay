@@ -43,22 +43,22 @@
         $(() => {
 
             let scanner = document.getElementById('scanner');
-            let sModel = document.getElementById('scanModal');
+            let sModal = document.getElementById('scanModal');
             
             const qrScanner = new QrScanner(scanner, function(result) {
                 if(result) {
                     qrScanner.stop();
-                    const myModal = new bootstrap.Modal(sModel);
-                    myModal.hide();
+                    $('#scanModal').modal('hide');
+
+                    window.location.replace(`scan-and-pay-form?to_phone=${result}`)
                 }
-                console.log(result);
             });
 
-            sModel.addEventListener('show.bs.modal', event => {
+            sModal.addEventListener('show.bs.modal', event => {
                 qrScanner.start();
             })
 
-            sModel.addEventListener('hidden.bs.modal', event => {
+            sModal.addEventListener('hidden.bs.modal', event => {
                 qrScanner.stop();
             })
 
