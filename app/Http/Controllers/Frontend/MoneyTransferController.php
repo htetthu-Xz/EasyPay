@@ -2,16 +2,18 @@
 
 namespace App\Http\Controllers\Frontend;
 
-use App\Helpers\UuidGenerator;
+use Exception;
 use App\Models\User;
+use App\Models\Transaction;
 use Illuminate\Http\Request;
+use App\Helpers\UuidGenerator;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\TransferFormRequest;
-use App\Models\Transaction;
-use Exception;
+use App\Notifications\GeneralNotification;
+use Illuminate\Support\Facades\Notification;
 
 class MoneyTransferController extends Controller
 {
@@ -130,6 +132,26 @@ class MoneyTransferController extends Controller
             ]);
             
             DB::commit();
+
+            $data = [
+                'title' => 'Money Transferred',
+                'message' => 'Your money transferred ' . number_format($transfer_data['amount']) . ' MMK to '. $to_account->name . ' ('. $to_account->phone .')',
+                'sourceable_id' => $from_account_transaction->id,
+                'sourceable_type' => Transaction::class,
+                'link' => route('transaction.detail', [$from_account_transaction->trx_id])
+            ];
+
+            Notification::send([$from_account], new GeneralNotification($data));
+
+            $data = [
+                'title' => 'Money Received',
+                'message' => 'You Received ' . number_format($transfer_data['amount']) . ' MMK from '. $from_account->name . ' ('. $from_account->phone .')',
+                'sourceable_id' => $to_account_transaction->id,
+                'sourceable_type' => Transaction::class,
+                'link' => route('transaction.detail', [$to_account_transaction->trx_id])
+            ];
+
+            Notification::send([$to_account], new GeneralNotification($data));
 
             $this->destroyTransferData();
             

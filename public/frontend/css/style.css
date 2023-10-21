@@ -526,8 +526,8 @@ body {
     }
 
     #awn-popup-wrapper .awn-popup-body {
-        max-width: 290px;
-        min-width: 200px;
+        /* max-width: 200px; */
+        min-width: 290px;
     }
 
     .home .qr-box span {

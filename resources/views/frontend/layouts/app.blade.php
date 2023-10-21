@@ -112,7 +112,9 @@
                         <div class="col-2 text-center _noti">
                             <a href="{{ route('notification.page') }}">
                                 <i class="fa-solid fa-bell"></i>
-                                <small class="bg-danger text-light">{{ $unread_noti_count }}</small>
+                                @if($unread_noti_count > 0)
+                                    <small class="bg-danger text-light">{{ $unread_noti_count }}</small>
+                                @endif
                             </a>
                         </div>
                     </div>
