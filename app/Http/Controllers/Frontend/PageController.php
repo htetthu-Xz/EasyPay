@@ -9,6 +9,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use App\Notifications\GeneralNotification;
+use Illuminate\Support\Facades\Notification;
 
 class PageController extends Controller
 {
@@ -40,6 +42,16 @@ class PageController extends Controller
             $user->update([
                 'password' => $attributes['new_password']
             ]);
+
+            $data = [
+                'title' => 'Updated Password',
+                'message' => 'Your account password successfully changed.',
+                'sourceable_id' => $user->id,
+                'sourceable_type' => User::class,
+                'link' => route('profile.page')
+            ];
+
+            Notification::send([$user], new GeneralNotification($data));
 
             return redirect()->route('profile.page')->with(['success' => 'Your password successfully updated.']);
         }

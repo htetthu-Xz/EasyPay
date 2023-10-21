@@ -37,6 +37,19 @@ body {
     color: #f7f7f7;
 }
 
+._noti a {
+    position: relative;
+}
+
+._noti small {
+    position: absolute;
+    top: -9px;
+    right: -2px;
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+}
+
 /* ***************** auth-form ****************** */
 
 .auth-form {
@@ -459,6 +472,22 @@ body {
     margin-top: 10px !important;
     margin-bottom: 10px !important;
 }
+
+
+/* ********************* Notification ********************* */
+
+.noti {
+    margin-bottom: 60px;
+}
+
+.noti a {
+    text-decoration: none;
+}
+
+.noti-detail img {
+    width: 150px;
+}
+
 /* ******* login footer ********** */
 
 @media (max-width: 490px) {
@@ -472,7 +501,7 @@ body {
     }
 
     .container p {
-        font-size: 12px;
+        font-size: 13px;
     }
 
     .register-footer a {

@@ -109,9 +109,10 @@
                                 <h3 class="fw-bold app-name">@yield('title')</h3>
                             </a>
                         </div>
-                        <div class="col-2 text-center">
-                            <a href="">
+                        <div class="col-2 text-center _noti">
+                            <a href="{{ route('notification.page') }}">
                                 <i class="fa-solid fa-bell"></i>
+                                <small class="bg-danger text-light">{{ $unread_noti_count }}</small>
                             </a>
                         </div>
                     </div>
