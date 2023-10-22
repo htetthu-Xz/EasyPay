@@ -16,7 +16,8 @@
         "proengsoft/laravel-jsvalidation": "^4.7",
         "simplesoftwareio/simple-qrcode": "~2",
         "tightenco/ziggy": "^1.6",
-        "yajra/laravel-datatables-oracle": "^9.21"
+        "yajra/laravel-datatables-oracle": "^9.21",
+        "laravel/passport": "^10.0"
     },
     "require-dev": {
         "facade/ignition": "^2.5",
@@ -31,7 +32,10 @@
             "App\\": "app/",
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/"
-        }
+        },
+        "files": [
+            "App\\Helpers\\ResponseJson.php"
+        ]
     },
     "autoload-dev": {
         "psr-4": {

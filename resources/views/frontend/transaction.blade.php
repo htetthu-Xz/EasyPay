@@ -15,7 +15,7 @@
                     <div class="col-6">
                         <div class="input-group">
                             <label class="input-group-text p-1">Date</label>
-                            <input type="text" class="form-control date">
+                            <input type="text" class="form-control date" placeholder="All">
                         </div>
                     </div>
                     <div class="col-6">
@@ -91,7 +91,7 @@
 
             $('.date').daterangepicker({
                 "singleDatePicker": true,
-                "autoApply": true,
+                "autoApply": false,
                 "locale": {
                     "format": "YYYY-MM-DD",
                 },
