@@ -5,7 +5,7 @@ namespace App\Http\Resources;
 use Carbon\Carbon;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class TransactionResource extends JsonResource
+class TransactionDetailResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -18,16 +18,18 @@ class TransactionResource extends JsonResource
         $title = '';
 
         if($this->type == 1) {
-            $title = 'From ' . $this->Source->name;
+            $title = 'From';
         } else {
-            $title = 'To ' . $this->Source->name;
+            $title = 'To';
         }
         return [
             'trx_id' => $this->trx_id,
+            'ref_no' => $this->ref_no,
             'amount' => number_format($this->amount, 2) . ' MMK',
             'type' => $this->type, // 1 => income, 2 => expense
             'title' => $title,
-            'date' => Carbon::parse($this->created_at)->format('Y-m-d H:i:s')
+            'date_time' => Carbon::parse($this->created_at)->format('Y-m-d H:i:s'),
+            'source' => $this->Source->name
         ];
     }
 }

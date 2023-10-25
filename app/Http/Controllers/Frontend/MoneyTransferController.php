@@ -138,7 +138,13 @@ class MoneyTransferController extends Controller
                 'message' => 'Your money transferred ' . number_format($transfer_data['amount']) . ' MMK to '. $to_account->name . ' ('. $to_account->phone .')',
                 'sourceable_id' => $from_account_transaction->id,
                 'sourceable_type' => Transaction::class,
-                'link' => route('transaction.detail', [$from_account_transaction->trx_id])
+                'link' => route('transaction.detail', [$from_account_transaction->trx_id]),
+                'deep_link' => [
+                    'target' => 'transaction_detail',
+                    'parameter' => [
+                        'trx_id' => $from_account_transaction->trx_id
+                    ]
+                ]
             ];
 
             Notification::send([$from_account], new GeneralNotification($data));
@@ -148,7 +154,13 @@ class MoneyTransferController extends Controller
                 'message' => 'You Received ' . number_format($transfer_data['amount']) . ' MMK from '. $from_account->name . ' ('. $from_account->phone .')',
                 'sourceable_id' => $to_account_transaction->id,
                 'sourceable_type' => Transaction::class,
-                'link' => route('transaction.detail', [$to_account_transaction->trx_id])
+                'link' => route('transaction.detail', [$to_account_transaction->trx_id]),
+                'deep_link' => [
+                    'target' => 'transaction_detail',
+                    'parameter' => [
+                        'trx_id' => $to_account_transaction->trx_id
+                    ]
+                ]
             ];
 
             Notification::send([$to_account], new GeneralNotification($data));

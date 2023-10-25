@@ -35,7 +35,8 @@ class GeneralNotification extends Notification
             'message' => $this->data['message'],
             'sourceable_id' => $this->data['sourceable_id'],
             'sourceable_type' => $this->data['sourceable_type'],
-            'link' => $this->data['link']
+            'link' => $this->data['link'],
+            'deep_link' => $this->data['deep_link']
         ];
     }
 }

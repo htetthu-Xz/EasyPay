@@ -48,7 +48,11 @@ class PageController extends Controller
                 'message' => 'Your account password successfully changed.',
                 'sourceable_id' => $user->id,
                 'sourceable_type' => User::class,
-                'link' => route('profile.page')
+                'link' => route('profile.page'),
+                'deep_link' => [
+                    'target' => 'profile',
+                    'parameter' => null
+                ]
             ];
 
             Notification::send([$user], new GeneralNotification($data));

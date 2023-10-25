@@ -19,4 +19,8 @@ Route::group([
     #transaction
     Route::get('transactions', [\App\Http\Controllers\Api\PageController::class, 'transaction']);
     Route::get('transactions/{trx_id}', [\App\Http\Controllers\Api\PageController::class, 'transactionDetail']);
+
+    #Notification
+    Route::get('notifications', [\App\Http\Controllers\Api\PageController::class, 'notification']);
+    Route::get('notifications/{id}', [\App\Http\Controllers\Api\PageController::class, 'notificationDetail']);
 });

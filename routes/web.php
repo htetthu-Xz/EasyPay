@@ -44,6 +44,6 @@ Route::group([
     Route::get('/scan-and-pay-form', [\App\Http\Controllers\Frontend\PageController::class, 'scanAndPayForm'])->name('scan.pay.form');
 
     #notification
-    Route::get('/notification', [\App\Http\Controllers\Frontend\NotificationController::class, 'index'])->name('notification.page');
-    Route::get('/notification/{id}', [\App\Http\Controllers\Frontend\NotificationController::class, 'detail'])->name('notification.detail');
+    Route::get('/notifications', [\App\Http\Controllers\Frontend\NotificationController::class, 'index'])->name('notification.page');
+    Route::get('/notifications/{id}', [\App\Http\Controllers\Frontend\NotificationController::class, 'detail'])->name('notification.detail');
 });
